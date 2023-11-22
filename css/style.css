@@ -173,7 +173,7 @@ nav a {
 nav::after {
   content: "";
   position: absolute;
-  top: -1rem;
+  top: -0.9rem;
   right: 0;
   width: 0;
   height: 0;
