@@ -76,8 +76,10 @@ textarea:not([rows]) {
 :target {
  scroll-margin-block: 5ex;
 }
+
 $primaryfont: "Barlow", sans-serif;
 $secondaryfont: "Fraunces", serif;
+
 body {
  font-family: $primaryfont;
  margin: 0;
@@ -100,34 +102,55 @@ header {
  justify-content: space-between;
  align-items: center;
  width: 100%;
+ @media (min-width: 600px) {
+  padding: 1rem 3rem;
+ }
 }
 nav {
- display: block;
  position: absolute;
  top: 5rem;
  left: 50%;
  transform: translateX(-50%);
  background-color: white;
  width: 90%;
- display: flex;
+ display: none;
  flex-direction: column;
  align-items: center;
+ z-index: 1;
 
  li {
   list-style: none;
   padding: 0.5rem;
-  margin: 1rem;
+  margin: 0.5rem;
   color: hsl(210, 4%, 67%);
 
   &:last-child {
    background-color: hsl(51, 100%, 49%);
    padding: 7px 25px;
    border-radius: 3rem;
+   margin: 1rem;
    color: black;
+
+   @media (min-width: 600px) {
+    background-color: white;
+    color: black;
+   }
+  }
+
+  @media (min-width: 600px) {
+   color: white;
   }
  }
  a {
   text-decoration: none;
+ }
+ @media (min-width: 600px) {
+  position: initial;
+  transform: initial;
+  background-color: transparent;
+  width: auto;
+  display: flex;
+  flex-direction: row;
  }
 }
 nav::after {
@@ -144,5 +167,98 @@ nav::after {
 .nav-menu {
  &:active {
   opacity: 0.7;
+ }
+ @media (min-width: 600px) {
+  display: none;
+ }
+}
+.nav-open {
+ display: flex;
+}
+
+// HERO SECTION
+
+.hero-title {
+ position: absolute;
+ top: 8rem;
+ left: 50%;
+ transform: translateX(-50%);
+ color: white;
+ font-size: 2rem;
+ font-family: $secondaryfont;
+ font-weight: 900;
+ letter-spacing: 0.5rem;
+ text-align: center;
+ @media (min-width: 600px) {
+  font-size: 3rem;
+ }
+}
+.hero-arrow {
+ position: absolute;
+ top: 18rem;
+ left: 50%;
+ transform: translateX(-50%);
+ @media (min-width: 600px) {
+  top: 21rem;
+ }
+}
+.hero-mobile {
+ @media (min-width: 600px) {
+  display: none;
+ }
+}
+.hero-desktop {
+ display: none;
+ @media (min-width: 600px) {
+  display: block;
+ }
+}
+
+// INTRO SECTION
+
+.about {
+ display: flex;
+ flex-direction: column;
+ @media (min-width: 600px) {
+  flex-direction: row-reverse;
+ }
+}
+.about-mobile {
+ display: block;
+ @media (min-width: 600px) {
+  display: none;
+ }
+}
+.about-desktop {
+ display: none;
+ @media (min-width: 600px) {
+  display: block;
+  flex: 50%;
+ }
+}
+.col {
+ flex: 50%;
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ align-items: flex-start;
+ text-align: left;
+ padding: 10rem 3rem 0 7rem;
+ gap: 2rem;
+
+ h1 {
+  font-size: 2.5rem;
+  font-family: $secondaryfont;
+  font-weight: 900;
+  margin: 0;
+ }
+ p {
+  color: hsl(210, 4%, 67%);
+  margin: 0;
+ }
+ a {
+  font-family: $secondaryfont;
+  text-decoration: none;
+  font-weight: 900;
  }
 }
