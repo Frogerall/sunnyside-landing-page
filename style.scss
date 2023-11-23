@@ -245,20 +245,21 @@ nav::after {
 .about-desktop {
  display: none;
  @media (min-width: 600px) {
-  display: block;
+  display: flex;
   flex: 50%;
  }
 }
 .col {
  flex: 100%;
- margin: 1rem;
  text-align: center;
  display: flex;
+ justify-content: center;
  align-items: center;
  flex-direction: column;
- gap: 1rem;
+ margin: 3.5rem 1rem;
+ gap: 2rem;
  h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: $secondaryfont;
   font-weight: 900;
   margin: 0;
@@ -288,10 +289,10 @@ nav::after {
  @media (min-width: 600px) {
   flex: 50%;
   margin: 0;
-
   text-align: left;
   align-items: flex-start;
-  padding: 3rem 0 1rem 2rem;
+  justify-content: center;
+  padding: 2.5rem;
  }
 }
 
