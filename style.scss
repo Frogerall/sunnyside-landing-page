@@ -12,6 +12,11 @@ html {
  -webkit-text-size-adjust: none;
  text-size-adjust: none;
  scroll-behavior: smooth;
+
+ @media (min-width: 1400px) {
+  display: flex;
+  justify-content: center;
+ }
 }
 /* Remove default margin in favour of better control in authored CSS */
 body,
