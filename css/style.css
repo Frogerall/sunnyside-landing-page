@@ -391,8 +391,19 @@ nav::after {
   transform: translateX(-50%);
   width: 90%;
 }
+.service-content h2 {
+  font-family: "Fraunces", serif;
+}
+.service-content h2,
+.service-content p {
+  color: hsl(167, 40%, 24%);
+}
 .services:nth-child(2) .service-content {
   bottom: 4.5rem;
+}
+.services:nth-child(2) .service-content h2,
+.services:nth-child(2) .service-content p {
+  color: hsl(198, 62%, 26%);
 }
 
 .gallery {

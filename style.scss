@@ -347,11 +347,22 @@ nav::after {
  left: 50%;
  transform: translateX(-50%);
  width: 90%;
+ h2 {
+  font-family: $secondaryfont;
+ }
+ h2,
+ p {
+  color: hsl(167, 40%, 24%);
+ }
  @media (min-width: 600px) {
  }
 }
 .services:nth-child(2) .service-content {
  bottom: 4.5rem;
+ h2,
+ p {
+  color: hsl(198, 62%, 26%);
+ }
 }
 
 // TESTIMONIAL SECTION
