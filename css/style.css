@@ -10,6 +10,8 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  display: flex;
+  justify-content: center;
 }
 
 /* Remove default margin in favour of better control in authored CSS */
@@ -91,6 +93,7 @@ textarea:not([rows]) {
 body {
   font-family: "Barlow", sans-serif;
   margin: 0;
+  max-width: 1440px;
 }
 
 p {
@@ -106,13 +109,15 @@ img {
 header {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: transparent;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 1440px;
 }
 @media (min-width: 600px) {
   header {
@@ -240,6 +245,11 @@ nav::after {
   }
 }
 
+.intro {
+  display: flex;
+  flex-direction: column;
+}
+
 .about {
   display: flex;
   flex-direction: column;
@@ -324,4 +334,55 @@ nav::after {
     justify-content: center;
     padding: 2.5rem;
   }
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 600px) {
+  .service {
+    flex-direction: row;
+  }
+}
+
+.services {
+  position: relative;
+  display: flex;
+  text-align: center;
+  flex: 100%;
+}
+@media (min-width: 600px) {
+  .services {
+    flex: 50%;
+  }
+}
+
+.service-mobile {
+  display: flex;
+}
+@media (min-width: 600px) {
+  .service-mobile {
+    display: none;
+  }
+}
+
+.service-desktop {
+  display: none;
+}
+@media (min-width: 600px) {
+  .service-desktop {
+    display: flex;
+  }
+}
+
+.service-content {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+}
+.services:nth-child(2) .service-content {
+  bottom: 4.5rem;
 }
