@@ -31,10 +31,6 @@ Users should be able to:
 
 ![](images/desktop-sunny.jpeg)
 
-#### Mobile Version
-
-![](images/mobile-sunny.jpeg)
-
 ### Links
 
 - Solution URL: [Adrian Salitico](https://salproj.tech)
