@@ -347,3 +347,28 @@ nav::after {
 .services:nth-child(2) .service-content {
  bottom: 4.5rem;
 }
+
+// TESTIMONIAL SECTION
+
+// GALLERY SECTION
+
+.gallery {
+ display: flex;
+ flex-flow: row wrap;
+}
+.wrap-img {
+ flex: 50%;
+ width: 100%;
+ @media (min-width: 600px) {
+  display: none;
+ }
+}
+.img-wrap {
+ display: none;
+ @media (min-width: 600px) {
+  display: block;
+  flex: 25%;
+ }
+}
+
+// FOOTER SECTION
