@@ -11,8 +11,6 @@ html {
  -moz-text-size-adjust: none;
  -webkit-text-size-adjust: none;
  text-size-adjust: none;
- display: flex;
- justify-content: center;
 }
 /* Remove default margin in favour of better control in authored CSS */
 body,
@@ -88,8 +86,9 @@ $secondaryfont: "Fraunces", serif;
 
 body {
  font-family: $primaryfont;
- margin: 0;
  max-width: 1440px;
+ margin: 0;
+ position: relative;
 }
 p {
  font-size: 18px;
@@ -116,7 +115,7 @@ header {
  max-width: 1440px;
  z-index: 2;
 
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   padding: 1rem 3rem;
  }
 }
@@ -144,20 +143,25 @@ nav {
    margin: 1rem;
    color: black;
 
-   @media (min-width: 600px) {
+   @media (min-width: 768px) {
     background-color: white;
     color: black;
+
+    &:active {
+     color: white;
+     background-color: rgba(255, 255, 255, 0.185);
+    }
    }
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: 768px) {
    color: white;
   }
  }
  a {
   text-decoration: none;
  }
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   position: initial;
   transform: initial;
   background-color: transparent;
@@ -176,7 +180,7 @@ nav::after {
  z-index: 1;
  border-top: 1rem solid transparent;
  border-right: 1rem solid white;
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   display: none;
  }
 }
@@ -184,7 +188,7 @@ nav::after {
  &:active {
   opacity: 0.7;
  }
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   display: none;
  }
 }
@@ -194,40 +198,60 @@ nav::after {
 
 // HERO SECTION
 
+.hero {
+ position: relative;
+}
 .hero-title {
  position: absolute;
- top: 8rem;
- left: 50%;
- transform: translateX(-50%);
  color: white;
- font-size: 2rem;
- font-family: $secondaryfont;
- font-weight: 900;
- letter-spacing: 0.5rem;
+ top: 30%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ width: 100%;
  text-align: center;
+ font-size: 3rem;
+ font-family: $secondaryfont;
+ z-index: 1;
 
- @media (min-width: 600px) {
+ @media only screen and (min-width: 768px) {
+  font-size: 2.5rem;
+  letter-spacing: 0.8rem;
+  top: 28%;
+ }
+ @media only screen and (min-width: 1200px) {
   font-size: 3rem;
+  top: 30%;
  }
 }
 .hero-arrow {
  position: absolute;
- top: 18rem;
+ top: 55%;
  left: 50%;
- transform: translateX(-50%);
- @media (min-width: 600px) {
-  top: 21rem;
+ z-index: 1;
+ transform: translateX(-50%, -50%);
+ @media (min-width: 425px) {
+  top: 55%;
+ }
+ @media (min-width: 768px) {
+  top: 45%;
+ }
+ @media only screen and (min-width: 1200px) {
+  top: 48%;
  }
 }
 .hero-mobile {
  z-index: -1;
- @media (min-width: 600px) {
+ position: relative;
+ width: 100%;
+ @media (min-width: 768px) {
   display: none;
  }
 }
 .hero-desktop {
  display: none;
- @media (min-width: 600px) {
+ position: relative;
+ width: 100%;
+ @media (min-width: 768px) {
   display: block;
  }
 }
@@ -241,25 +265,25 @@ nav::after {
 .about {
  display: flex;
  flex-direction: column;
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   flex-direction: row-reverse;
  }
 }
 .about:last-of-type {
  flex-direction: column-reverse;
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   flex-direction: row-reverse;
  }
 }
 .about-mobile {
  display: block;
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   display: none;
  }
 }
 .about-desktop {
  display: none;
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   display: flex;
   flex: 50%;
  }
@@ -300,8 +324,13 @@ nav::after {
    z-index: -1;
    border-radius: 25px;
   }
+  &:active {
+   &::after {
+    background-color: hsl(51, 100%, 49%);
+   }
+  }
  }
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   flex: 50%;
   margin: 0;
   text-align: left;
@@ -310,13 +339,23 @@ nav::after {
   padding: 2.5rem;
  }
 }
+.about:nth-child(2) .col a {
+ &::after {
+  background-color: hsla(7, 99%, 70%, 0.315);
+ }
+ &:active {
+  &::after {
+   background-color: hsl(7, 99%, 70%);
+  }
+ }
+}
 
 // SERVICE SECTION
 
 .service {
  display: flex;
  flex-direction: column;
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   flex-direction: row;
  }
 }
@@ -325,47 +364,110 @@ nav::after {
  display: flex;
  text-align: center;
  flex: 100%;
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   flex: 50%;
  }
 }
 .service-mobile {
  display: flex;
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   display: none;
  }
 }
 .service-desktop {
  display: none;
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   display: flex;
  }
 }
 .service-content {
  position: absolute;
- bottom: 3rem;
- left: 50%;
+ bottom: 4rem;
+ left: 52%;
  transform: translateX(-50%);
  width: 90%;
  h2 {
   font-family: $secondaryfont;
+  font-weight: 900;
+  font-size: 2rem;
  }
  h2,
  p {
   color: hsl(167, 40%, 24%);
  }
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
+  bottom: 2rem;
  }
 }
 .services:nth-child(2) .service-content {
- bottom: 4.5rem;
  h2,
  p {
   color: hsl(198, 62%, 26%);
  }
+ @media (min-width: 768px) {
+  bottom: 3.5rem;
+ }
 }
 
 // TESTIMONIAL SECTION
+
+.testimonials {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ gap: 4rem;
+ width: 100%;
+ padding: 4rem 1.5rem;
+
+ h2 {
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  font-family: $secondaryfont;
+  color: hsl(232, 10%, 55%);
+ }
+ @media (min-width: 1200px) {
+  padding: 7rem 5rem 10rem 5rem;
+ }
+}
+.staff {
+ display: flex;
+ flex-direction: column;
+ gap: 5rem;
+ @media (min-width: 768px) {
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+ }
+}
+.personnel {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ gap: 1.5rem;
+
+ img {
+  border-radius: 50%;
+  width: 25%;
+ }
+ p {
+  color: hsl(213, 9%, 39%);
+  line-height: 1.7;
+ }
+ h3 {
+  font-family: $secondaryfont;
+  font-weight: 900;
+  color: hsl(212, 27%, 19%);
+ }
+ h4 {
+  color: hsl(210, 4%, 67%);
+  margin-top: 0.5rem;
+ }
+}
 
 // GALLERY SECTION
 
@@ -376,13 +478,13 @@ nav::after {
 .wrap-img {
  flex: 50%;
  width: 100%;
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   display: none;
  }
 }
 .img-wrap {
  display: none;
- @media (min-width: 600px) {
+ @media (min-width: 768px) {
   display: block;
   flex: 25%;
  }
@@ -397,6 +499,7 @@ footer {
  justify-content: center;
  align-items: center;
  padding: 3rem;
+ width: 100%;
  .nav-logo {
   fill: hsl(167, 40%, 24%);
  }
@@ -407,10 +510,22 @@ footer {
   padding: 0;
   gap: 3rem;
   margin-bottom: 3rem;
+  cursor: pointer;
+  li {
+   &:active {
+    color: white;
+   }
+  }
  }
  .social {
   display: flex;
   gap: 1.5rem;
   margin-bottom: 3rem;
+  cursor: pointer;
+  img {
+   &:active {
+    filter: grayscale(100%) brightness(200%);
+   }
+  }
  }
 }
