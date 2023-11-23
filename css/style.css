@@ -118,6 +118,7 @@ header {
   align-items: center;
   width: 100%;
   max-width: 1440px;
+  z-index: 2;
 }
 @media (min-width: 600px) {
   header {
@@ -135,7 +136,6 @@ nav {
   display: none;
   flex-direction: column;
   align-items: center;
-  z-index: 1;
 }
 nav li {
   list-style: none;
@@ -186,6 +186,11 @@ nav::after {
   border-top: 1rem solid transparent;
   border-right: 1rem solid white;
 }
+@media (min-width: 600px) {
+  nav::after {
+    display: none;
+  }
+}
 
 .nav-menu:active {
   opacity: 0.7;
@@ -230,6 +235,9 @@ nav::after {
   }
 }
 
+.hero-mobile {
+  z-index: -1;
+}
 @media (min-width: 600px) {
   .hero-mobile {
     display: none;
@@ -410,4 +418,29 @@ nav::after {
     display: block;
     flex: 25%;
   }
+}
+
+footer {
+  background-color: hsl(168, 62%, 63%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+footer .nav-logo {
+  fill: hsl(167, 40%, 24%);
+}
+footer ul {
+  list-style-type: none;
+  color: hsl(167, 40%, 24%);
+  display: flex;
+  padding: 0;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+footer .social {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
