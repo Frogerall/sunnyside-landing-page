@@ -11,6 +11,7 @@ html {
  -moz-text-size-adjust: none;
  -webkit-text-size-adjust: none;
  text-size-adjust: none;
+ scroll-behavior: smooth;
 }
 /* Remove default margin in favour of better control in authored CSS */
 body,
@@ -119,6 +120,13 @@ header {
   padding: 1rem 3rem;
  }
 }
+.nav-logo {
+ cursor: pointer;
+ transition: transform 0.3s ease;
+ &:active {
+  transform: scale(0.9);
+ }
+}
 nav {
  position: absolute;
  top: 5rem;
@@ -126,9 +134,12 @@ nav {
  transform: translateX(-50%);
  background-color: white;
  width: 90%;
- display: none;
+ display: flex;
+ visibility: hidden;
+ opacity: 0;
  flex-direction: column;
  align-items: center;
+ transition: all 0.3s ease;
 
  li {
   list-style: none;
@@ -136,12 +147,18 @@ nav {
   margin: 0.5rem;
   color: hsl(210, 4%, 67%);
 
+  &:active {
+   color: hsl(167, 40%, 24%);
+  }
   &:last-child {
    background-color: hsl(51, 100%, 49%);
    padding: 7px 25px;
    border-radius: 3rem;
    margin: 1rem;
    color: black;
+   &:active {
+    background-color: hsla(51, 100%, 49%, 0.438);
+   }
 
    @media (min-width: 768px) {
     background-color: white;
@@ -179,21 +196,22 @@ nav::after {
  height: 0;
  z-index: 1;
  border-top: 1rem solid transparent;
- border-right: 1rem solid white;
+ border-right: 1.5rem solid white;
  @media (min-width: 768px) {
   display: none;
  }
 }
 .nav-menu {
  &:active {
-  opacity: 0.7;
+  opacity: 0.5;
  }
  @media (min-width: 768px) {
   display: none;
  }
 }
 .nav-open {
- display: flex;
+ visibility: visible;
+ opacity: 1;
 }
 
 // HERO SECTION
@@ -416,7 +434,7 @@ nav::after {
  flex-direction: column;
  justify-content: center;
  align-items: center;
- gap: 4rem;
+ gap: 5rem;
  width: 100%;
  padding: 4rem 1.5rem;
 
@@ -440,23 +458,26 @@ nav::after {
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
+  gap: 1.5rem;
  }
 }
 .personnel {
+ flex: 1 1 33%;
  display: flex;
  flex-direction: column;
  align-items: center;
  justify-content: center;
  text-align: center;
- gap: 1.5rem;
+ gap: 3.5rem;
 
  img {
   border-radius: 50%;
-  width: 25%;
+  width: 23%;
  }
  p {
   color: hsl(213, 9%, 39%);
   line-height: 1.7;
+  margin: 0;
  }
  h3 {
   font-family: $secondaryfont;
@@ -501,7 +522,13 @@ footer {
  padding: 3rem;
  width: 100%;
  .nav-logo {
-  fill: hsl(167, 40%, 24%);
+  svg {
+   fill: hsl(167, 40%, 24%);
+   &:active {
+    fill: white;
+   }
+  }
+  cursor: pointer;
  }
  ul {
   list-style-type: none;
@@ -511,7 +538,8 @@ footer {
   gap: 3rem;
   margin-bottom: 3rem;
   cursor: pointer;
-  li {
+  li a {
+   text-decoration: none;
    &:active {
     color: white;
    }
